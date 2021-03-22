@@ -1,3 +1,4 @@
+<div id="comments-section">
 <div id="comment-data" data-page-id={{post.id}} data-member-name={{#if @member}}{{@member.name}}{{else}}"Anonymous"{{/if}}></div>
 {{#if @member}}
   <form id="commento-comment-form"></form>
@@ -5,3 +6,5 @@
   <p>Please <a href="#/portal/signup">subscribe</a> or <a href="#/portal/signin">log in</a> to post a comment.</p>
 {{/if}}
 <div id="comment-list">
+<script src="https://cdn.jsdelivr.net/gh/andersonbcdefg/custom-commento@v1.0.0/comment-section.js"></script>
+</div>
