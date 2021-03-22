@@ -34,21 +34,8 @@ if (commentForm) {
 	commentForm.innerHTML = `
 	<style scoped>
 		textarea {
-			resize: none;
 			width: 90%;
 			height: 75px;
-			font-family: -apple-system,Avenir,sans-serif;
-			font-size: 0.85rem;
-			border-radius: 10px;
-			-webkit-box-shadow: none;
-		    -moz-box-shadow: none;
-		    box-shadow: none;
-		    border: 2px solid Silver;
-		    padding: 5px;
-		}
-		textarea:focus {
-			outline: none;
-			box-shadow: 0px 0px 2px var(--brand-color);
 		}
 		#submit-comment {
 	        transition-property: color, border-color;
