@@ -108,29 +108,51 @@ post("https://comments.operationjoker.com/api/comment/list", json, (res) => {
 	let rawComments = JSON.parse(res).comments;
     let commentHTML = rawComments.map(x => {
 		return `<div class="commento-comment">
+			<div class="comment-top">
 			<h3 class="commenter-name">${stripName(x.markdown).replaceAll("\t", "")}</h3>
-			<p class="comment-body">${x.markdown.replace(/\t.*\t/, "")}</p>
-			<code class="comment-date">${x.creationDate.slice(0, 10)}</code>
+			<span class="comment-date">${x.creationDate.slice(0, 10)}</span></div>
+			<div class="comment-bottom">
+			<p class="comment-body">${x.markdown.replace(/\t.*\t/, "")}</p></div>
 			</div>`;
 	});
     commentList.innerHTML = `
     <style scoped>
+    	.comment-top {
+    		display: flex;
+    		align-items: center;
+    		justify-content: flex-start;
+    		background-color: #dbdbdb;
+    		padding: 10px 10px;
+    		border-radius: 10px 10px 0 0;
+    		border-bottom: 1px solid gray;
+    	}
+
+    	.comment-bottom {
+    		background-color: #f1f1f1;
+    		padding: 10px 10px 20px 10px;
+    		border-radius: 0 0 10px 10px;
+    	}
+
 		.commento-comment {
 			width: 90%;
 			margin: 5px 0;
 			border: 1px solid grey;
 			border-radius: 10px;
-			padding: 10px;
-			background-color: #dbdbdb;
+			padding: 0
 		}
 
 		.commento-comment h3 {
-			margin-top: 0px;
-			margin-bottom: 5px;
+			margin: 0 10px 0 0;
+			display: inline-block;
 		}
 
 		.commento-comment p {
 			margin: 0;
+		}
+
+		.comment-date {
+			font-size: 0.8rem;
+			color: grey;
 		}
 	</style>
 	${commentHTML.join("")}`;
