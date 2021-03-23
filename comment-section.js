@@ -147,6 +147,7 @@ post("https://comments.operationjoker.com/api/comment/list", json, (res) => {
 		.commento-comment h3 {
 			margin: 0 10px 0 0;
 			display: inline-block;
+			color: #282c35;
 		}
 
 		.commento-comment p {
