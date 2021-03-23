@@ -51,7 +51,6 @@ if (commentForm) {
 	        padding: 7px 0;
 			margin: 25px 5px;
 			font-family: -apple-system,Avenir,sans-serif;
-			font-size: 1rem;
 	    }
     
 	    #submit-comment:hover {
