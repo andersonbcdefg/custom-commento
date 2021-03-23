@@ -109,10 +109,12 @@ post("https://comments.operationjoker.com/api/comment/list", json, (res) => {
     let commentHTML = rawComments.map(x => {
 		return `<div class="commento-comment">
 			<div class="comment-top">
-			<h3 class="commenter-name">${stripName(x.markdown).replaceAll("\t", "")}</h3>
+			<h3 class="commenter-name">${stripName(x.markdown).replaceAll("\t", "")
+				.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</h3>
 			<span class="comment-date">${x.creationDate.slice(0, 10)}</span></div>
 			<div class="comment-bottom">
-			<p class="comment-body">${x.markdown.replace(/\t.*\t/, "")}</p></div>
+			<p class="comment-body">${x.markdown.replace(/\t.*\t/, "")
+				.replaceAll("<", "&lt;").replaceAll(">", "&gt;")}</p></div>
 			</div>`;
 	});
     commentList.innerHTML = `
@@ -135,10 +137,11 @@ post("https://comments.operationjoker.com/api/comment/list", json, (res) => {
 
 		.commento-comment {
 			width: 90%;
-			margin: 5px 0;
+			margin: 10px 0;
 			border: 1px solid grey;
 			border-radius: 10px;
-			padding: 0
+			padding: 0;
+			color: #282c35
 		}
 
 		.commento-comment h3 {
